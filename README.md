@@ -1,4 +1,4 @@
-# Cinnamon Prompts
+# Prompts
 
 <p>
     <a href="https://github.com/charmbracelet/huh"><img src="https://img.shields.io/badge/original-huh-blue" alt="Original Huh"></a>
