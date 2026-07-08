@@ -19,7 +19,7 @@ bun add github:yum-tty/prompts
 Or install from a specific package:
 
 ```bash
-bun add cinnamon-prompts
+bun add @yum-tty/prompts
 ```
 
 ## Quick Start
