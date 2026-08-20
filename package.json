@@ -1,6 +1,6 @@
 ﻿{
     "name":  "@yum-tty/prompts",
-    "version":  "0.1.0",
+    "version": "0.2.0",
     "description":  "Interactive prompts and forms for Bun. A TypeScript port of Huh.",
     "module":  "src/index.ts",
     "type":  "module",
