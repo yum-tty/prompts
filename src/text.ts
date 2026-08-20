@@ -1,11 +1,11 @@
-import type { Msg, Cmd } from "cinnamon-bun"
-import { Style } from "caramel"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
+import { Style } from "@yum-tty/caramel"
 import type { Field, KeyBinding, ValidateFunc, FieldPosition } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
 import type { Eval } from "./eval"
 import { createEval } from "./eval"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { KeyMap } from "./keymap"
 
 export interface TextModel extends Field {
@@ -205,7 +205,7 @@ export function Text(config: {
             newCursor.col--
           } else if (newCursor.row > 0) {
             const prevLen = textLines[newCursor.row - 1]!.length
-            textLines[newCursor.row - 1] += textLines[newCursor.row]
+            textLines[newCursor.row - 1]! += textLines[newCursor.row]!
             textLines.splice(newCursor.row, 1)
             newCursor.row--; newCursor.col = prevLen
           }
@@ -216,7 +216,7 @@ export function Text(config: {
             const line = textLines[newCursor.row]!
             textLines[newCursor.row] = line.slice(0, newCursor.col) + line.slice(newCursor.col + 1)
           } else if (newCursor.row < textLines.length - 1) {
-            textLines[newCursor.row] += textLines[newCursor.row + 1]
+            textLines[newCursor.row]! += textLines[newCursor.row + 1]!
             textLines.splice(newCursor.row + 1, 1)
           }
           newValue = textLines.join("\n")

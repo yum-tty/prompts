@@ -1,10 +1,10 @@
-import type { Msg, Cmd } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
 import type { Field, KeyBinding, ValidateFunc, FieldPosition } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
 import type { Eval } from "./eval"
 import { createEval } from "./eval"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { KeyMap } from "./keymap"
 
 export interface MultiOption {

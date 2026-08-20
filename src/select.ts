@@ -1,10 +1,10 @@
-import type { Msg, Cmd } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
 import type { Field, FieldPosition } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
 import type { Eval } from "./eval"
 import { createEval } from "./eval"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { KeyMap } from "./keymap"
 import { NewDefaultKeyMap } from "./keymap"
 import type { KeyBinding as KmKeyBinding } from "./keymap"
@@ -21,7 +21,7 @@ import {
   YOffset,
   ViewportHeight,
   ViewportView,
-} from "cinnamon"
+} from "@yum-tty/cinnamon"
 
 export interface Option {
   label: string
@@ -225,7 +225,7 @@ export function Select(config: {
         } else {
           vp = ensureCursorVisibleVP(vp, nc)
         }
-        const val = nc >= 0 && nc < m.filteredOptions.length ? m.filteredOptions[nc].value : m.value
+        const val = nc >= 0 && nc < m.filteredOptions.length ? m.filteredOptions[nc]!.value : m.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: vp }), null]
       }
@@ -241,7 +241,7 @@ export function Select(config: {
         } else {
           vp = ensureCursorVisibleVP(vp, nc)
         }
-        const val = m.filteredOptions[nc].value
+        const val = m.filteredOptions[nc]!.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: vp }), null]
       }
@@ -249,7 +249,7 @@ export function Select(config: {
       if (matchesKey(key, km.GotoTop)) {
         const nc = 0
         const [topVp] = GotoTop(m.viewport)
-        const val = m.filteredOptions.length > 0 ? m.filteredOptions[nc].value : m.value
+        const val = m.filteredOptions.length > 0 ? m.filteredOptions[nc]!.value : m.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: topVp }), null]
       }
@@ -258,7 +258,7 @@ export function Select(config: {
         if (m.filteredOptions.length === 0) return [m, null]
         const nc = m.filteredOptions.length - 1
         const [bottomVp] = GotoBottom(m.viewport)
-        const val = m.filteredOptions[nc].value
+        const val = m.filteredOptions[nc]!.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: bottomVp }), null]
       }
@@ -266,7 +266,7 @@ export function Select(config: {
       if (matchesKey(key, km.HalfPageUp)) {
         const nc = Math.max(0, m.cursor - Math.floor(ViewportHeight(m.viewport) / 2))
         const vp = ensureCursorVisibleVP(m.viewport, nc)
-        const val = nc >= 0 && nc < m.filteredOptions.length ? m.filteredOptions[nc].value : m.value
+        const val = nc >= 0 && nc < m.filteredOptions.length ? m.filteredOptions[nc]!.value : m.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: vp }), null]
       }
@@ -275,21 +275,21 @@ export function Select(config: {
         if (m.filteredOptions.length === 0) return [m, null]
         const nc = Math.min(m.filteredOptions.length - 1, m.cursor + Math.floor(ViewportHeight(m.viewport) / 2))
         const vp = ensureCursorVisibleVP(m.viewport, nc)
-        const val = m.filteredOptions[nc].value
+        const val = m.filteredOptions[nc]!.value
         m.accessor.Set(val)
         return [c(m, { cursor: nc, value: val, viewport: vp }), null]
       }
 
       if (matchesKey(key, km.Next) || matchesKey(key, km.Submit)) {
         if (m.cursor >= m.filteredOptions.length) return [m, null]
-        const val = m.filteredOptions[m.cursor].value
+        const val = m.filteredOptions[m.cursor]!.value
         m.accessor.Set(val)
         return [c(m, { value: val, err: null }), null]
       }
 
       if (matchesKey(key, km.Prev)) {
         if (m.cursor >= m.filteredOptions.length) return [m, null]
-        const val = m.filteredOptions[m.cursor].value
+        const val = m.filteredOptions[m.cursor]!.value
         m.accessor.Set(val)
         return [c(m, { value: val, err: null }), null]
       }

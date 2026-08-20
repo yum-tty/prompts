@@ -1,10 +1,10 @@
-import type { Msg, Cmd } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
 import path from "node:path"
-import { Style } from "caramel"
+import { Style } from "@yum-tty/caramel"
 import type { Field, KeyBinding, ValidateFunc, FieldPosition } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { KeyMap } from "./keymap"
 
 export interface FileEntry {

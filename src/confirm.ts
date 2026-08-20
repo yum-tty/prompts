@@ -1,8 +1,8 @@
-import type { Msg, Cmd } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
 import type { Field, KeyBinding, FieldPosition } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { KeyMap } from "./keymap"
 
 export type ButtonAlignment = "left" | "center" | "right"

@@ -1,5 +1,5 @@
-import type { Msg, Cmd } from "cinnamon-bun"
-import { Accessor, EmbeddedAccessor } from "./accessor"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
+import { type Accessor, EmbeddedAccessor } from "./accessor"
 import type { Field, FieldPosition, KeyBinding } from "./field"
 import type { Theme } from "./theme"
 import { activeStyles } from "./theme"
