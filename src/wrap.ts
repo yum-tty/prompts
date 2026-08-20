@@ -1,4 +1,4 @@
-import { Wrap as caramelWrap } from "caramel"
+import { Wrap as caramelWrap } from "@yum-tty/caramel"
 
 const breakChars = ",.-; "
 

@@ -1,4 +1,4 @@
-import type { Msg, Cmd } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
 import type { Theme } from "./theme"
 import type { KeyMap } from "./keymap"
 

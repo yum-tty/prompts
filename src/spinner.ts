@@ -1,5 +1,5 @@
-import type { Msg, Cmd } from "cinnamon-bun"
-import { Tick, Batch, Quit, Interrupt } from "cinnamon-bun"
+import type { Msg, Cmd } from "@yum-tty/cinnamon-bun"
+import { Tick, Batch, Quit, Interrupt } from "@yum-tty/cinnamon-bun"
 
 export type SpinnerType = "line" | "dot" | "miniDot" | "jump" | "points" | "pulse" | "globe" | "moon" | "monkey" | "meter" | "hamburger" | "ellipsis"
 

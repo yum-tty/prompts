@@ -1,7 +1,7 @@
 import type { Field } from "./field"
 import type { Theme } from "./theme"
 import { getThemeStyles } from "./theme"
-import { Style } from "caramel"
+import { Style } from "@yum-tty/caramel"
 
 export interface GroupModel {
   fields: Field[]

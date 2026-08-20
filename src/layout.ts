@@ -1,6 +1,6 @@
 import type { FormModel } from "./form"
 import type { GroupModel } from "./group"
-import { JoinHorizontal, Left } from "caramel"
+import { JoinHorizontal, Left } from "@yum-tty/caramel"
 
 export interface Layout {
   View(f: FormModel): string

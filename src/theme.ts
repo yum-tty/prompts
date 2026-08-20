@@ -1,4 +1,4 @@
-import { Style, borders } from "caramel"
+import { Style, borders } from "@yum-tty/caramel"
 
 export { Style }
 
